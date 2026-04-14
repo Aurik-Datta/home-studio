@@ -140,6 +140,7 @@ services:
     container_name: homepage
     environment:
       - TZ=${TZ}
+      - HOMEPAGE_ALLOWED_HOSTS=${SERVER_IP}:3000
     volumes:
       - ${CONFIG_DIR}/homepage:/app/config
       - /var/run/docker.sock:/var/run/docker.sock:ro
