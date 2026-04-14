@@ -18,7 +18,7 @@ services:
     ports:
       - 8080:8080  # qBittorrent Web UI
     healthcheck:
-      test: ["CMD", "curl", "-sf", "https://am.i.mullvad.net/connected"]
+      test: ["CMD", "wget", "-q", "--spider", "https://am.i.mullvad.net/connected"]
       interval: 60s
       timeout: 10s
       retries: 3
