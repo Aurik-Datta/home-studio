@@ -30,7 +30,7 @@ qBittorrent runs with `network_mode: service:gluetun` — if the VPN drops, all 
 **1. Bootstrap the server**
 
 ```bash
-bash setup.sh
+bash scripts/setup.sh
 ```
 
 This installs Docker, Tailscale, configures UFW (allows LAN `192.168.0.0/16` and Tailscale `100.64.0.0/10`), disables lid-close suspend, and creates the media directory structure.
