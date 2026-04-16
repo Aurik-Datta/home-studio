@@ -80,8 +80,10 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
+      - ${MEDIA_DIR}/downloads:/downloads
       - ${CONFIG_DIR}/sonarr:/config
       - ${MEDIA_DIR}:/media  # full media root so Sonarr can move files
+      - ${MEDIA_DIR}/anime:/media/anime
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -95,6 +97,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
+      - ${MEDIA_DIR}/downloads:/downloads
       - ${CONFIG_DIR}/radarr:/config
       - ${MEDIA_DIR}:/media
     ports:
@@ -128,6 +131,7 @@ services:
       - ${CONFIG_DIR}/jellyfin:/config
       - ${MEDIA_DIR}/movies:/data/movies
       - ${MEDIA_DIR}/tv:/data/tv
+      - ${MEDIA_DIR}/anime:/data/anime
     ports:
       - 8096:8096
     restart: unless-stopped
