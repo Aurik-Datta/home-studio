@@ -60,7 +60,17 @@ services:
     ports:
       - 9696:9696
     restart: unless-stopped
-
+  # ─── CLOUDFLARE BYPASS ─────────────────────────────────────────────────────
+  flaresolverr:
+    image: ghcr.io/thephaseless/byparr:latest
+    container_name: flaresolverr
+    network_mode: service:gluetun
+    environment:
+      - TZ=${TZ}
+    depends_on:
+      gluetun:
+        condition: service_healthy
+    restart: unless-stopped
   # ─── TV AUTOMATION ─────────────────────────────────────────────────────────
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
