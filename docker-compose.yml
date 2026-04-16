@@ -15,8 +15,12 @@ services:
       - WIREGUARD_ADDRESSES=${MULLVAD_ADDRESSES}
       - SERVER_COUNTRIES=Canada
       - TZ=${TZ}
+      - FIREWALL_INPUT_PORTS=6881
     ports:
       - 8080:8080  # qBittorrent Web UI
+      - 8191:8191  # ByParr
+      - 6881:6881
+      - 6881:6881/udp
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "https://am.i.mullvad.net/connected"]
       interval: 60s
