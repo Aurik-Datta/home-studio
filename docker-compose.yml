@@ -22,7 +22,7 @@ services:
       - 6881:6881
       - 6881:6881/udp
     healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "https://am.i.mullvad.net/connected"]
+      test: ["CMD-SHELL", "wget -qO- https://am.i.mullvad.net/connected | grep -q 'You are connected'"]
       interval: 60s
       timeout: 10s
       retries: 3
