@@ -15,7 +15,8 @@ services:
       - WIREGUARD_ADDRESSES=${MULLVAD_ADDRESSES}
       - SERVER_COUNTRIES=Canada
       - TZ=${TZ}
-      - FIREWALL_INPUT_PORTS=6881
+      - FIREWALL_INPUT_PORTS=6881,80,443,1337,6969,451
+      - KEEP_ALIVE=25s
     ports:
       - 8080:8080  # qBittorrent Web UI
       - 8191:8191  # ByParr
